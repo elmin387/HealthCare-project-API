@@ -1,0 +1,14 @@
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\bin\Debug\net6.0\HealthCare.Domain.deps.json
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\bin\Debug\net6.0\HealthCare.Domain.runtimeconfig.json
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\bin\Debug\net6.0\HealthCare.Domain.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\bin\Debug\net6.0\HealthCare.Domain.pdb
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.csproj.AssemblyReference.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.AssemblyInfoInputs.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.AssemblyInfo.cs
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\refint\HealthCare.Domain.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.pdb
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\HealthCare.Domain.genruntimeconfig.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Domain\obj\Debug\net6.0\ref\HealthCare.Domain.dll

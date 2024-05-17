@@ -1,0 +1,17 @@
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\bin\Debug\net6.0\HealthCare.Infrastructure.deps.json
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\bin\Debug\net6.0\HealthCare.Infrastructure.runtimeconfig.json
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\bin\Debug\net6.0\HealthCare.Infrastructure.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\bin\Debug\net6.0\HealthCare.Infrastructure.pdb
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\bin\Debug\net6.0\HealthCare.Domain.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\bin\Debug\net6.0\HealthCare.Domain.pdb
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.AssemblyInfo.cs
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.csproj.CopyComplete
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\refint\HealthCare.Infrastructure.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.pdb
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\HealthCare.Infrastructure.genruntimeconfig.cache
+C:\Users\Elmin\source\repos\HealthCare\HealthCare.Infrastructure\obj\Debug\net6.0\ref\HealthCare.Infrastructure.dll
