@@ -18,9 +18,9 @@ namespace HealthCare.Infrastructure.Services.Implementations
             _patientRepository = patientRepository;
         }
 
-        public async Task<IEnumerable<PatientItem>> GetPatientsAsync()
+        public async Task<PatientGridResponse> GetPatientsAsync(PatientFilter filter)
         {
-           return  await _patientRepository.GetPatientsAsync();
+           return  await _patientRepository.GetPatientsAsync(filter);
         }
         public async Task<PatientItem> GetPatientByIdAsync(int id)
         {
@@ -33,6 +33,10 @@ namespace HealthCare.Infrastructure.Services.Implementations
         public async Task<PatientItem> CreatePatientAsync(PatientItem patientItem)
         {
             return await _patientRepository.CreatePatient(patientItem);
+        }
+        public async Task<(bool isSuccess,string patientName)> DeletePatientAsync(int id)
+        {
+            return await _patientRepository.DeletePatient(id);
         }
  
           

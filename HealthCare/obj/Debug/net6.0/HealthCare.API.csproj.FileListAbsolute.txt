@@ -70,3 +70,4 @@ C:\Users\Elmin\source\repos\HealthCare\HealthCare\obj\Debug\net6.0\refint\Health
 C:\Users\Elmin\source\repos\HealthCare\HealthCare\obj\Debug\net6.0\HealthCare.API.pdb
 C:\Users\Elmin\source\repos\HealthCare\HealthCare\obj\Debug\net6.0\HealthCare.API.genruntimeconfig.cache
 C:\Users\Elmin\source\repos\HealthCare\HealthCare\obj\Debug\net6.0\ref\HealthCare.API.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll

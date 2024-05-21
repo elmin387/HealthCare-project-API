@@ -10,7 +10,7 @@ namespace HealthCare.Domain.Models.Contracts.Patient
 {
     public class PatientFilter:BaseFilter
     {
-        public int PatientId { get; set; }
+        public int? PatientId { get; set; }
         [MaxLength(200)]
         public string? Name { get; set; }
     }

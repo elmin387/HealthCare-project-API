@@ -1,5 +1,7 @@
-﻿using HealthCare.Domain.Models.Contracts.Patient;
+﻿using HealthCare.Domain.Common;
+using HealthCare.Domain.Models.Contracts.Patient;
 using HealthCare.Domain.Models.Entities;
+using HealthCare.Infrastructure.Common;
 using HealthCare.Infrastructure.Persistance;
 using HealthCare.Infrastructure.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -14,35 +16,40 @@ namespace HealthCare.Infrastructure.Repository.Implementations
     public class PatientRepository:IPatientRepository
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly IGenericRepository<Patient> _genericRepository;
 
-        public PatientRepository(ApplicationDbContext dbContext)
+        public PatientRepository(ApplicationDbContext dbContext, IGenericRepository<Patient> genericRepository)
         {
             _dbContext = dbContext;
+            _genericRepository = genericRepository;
         }
-        public async Task<IEnumerable<PatientItem>> GetPatientsAsync()
+        public async Task<PatientGridResponse> GetPatientsAsync(PatientFilter filter)
         {
-            var patientItems = await _dbContext.Patients.Select(patient => new PatientItem
-            {
-                PatientId = patient.PatientId,
-                PatientName = patient.PatientName,
-                Telephone = patient.Telephone,
-                Address = patient.Address,
-                Gender = (Domain.Models.Contracts.Patient.Gender)patient.Gender,
-
-            }).ToListAsync();
-            //List<PatientItem> obj = new List<PatientItem>();
-            //foreach(var item in _dbContext.Patients)
+            //var patientItems = await _dbContext.Patients.Select(patient => new PatientItem
             //{
-            //    obj.Add(new PatientItem
-            //    {
-            //        PatientId = item.PatientId,
-            //        PatientName = item.PatientName,
-            //        Address = item.Address,
-            //        Telephone = item.Telephone,
-            //        Gender = (Domain.Models.Contracts.Patient.Gender)item.Gender
-            //    });
-            //}
-            return patientItems;
+            //    PatientId = patient.PatientId,
+            //    PatientName = patient.PatientName,
+            //    Telephone = patient.Telephone,
+            //    Address = patient.Address,
+            //    Gender = (Domain.Models.Contracts.Patient.Gender)patient.Gender,
+
+            //}).ToListAsync();
+            PatientGridResponse response = new PatientGridResponse();
+            var patients = await _genericRepository.Read()
+                                                   .GlobalFilter()
+                                                   .FilterPatients(filter)
+                                                   .SortPaginate(filter, response)
+            /*var patients = await _dbContext.Patients*/.Select(p=> new PatientItem
+            {
+                PatientId = p.PatientId,
+                PatientName = p.PatientName,
+                Address = p.Address,
+                Telephone = p.Telephone,
+                Gender = (Domain.Models.Contracts.Patient.Gender)p.Gender,
+            }).ToListAsync();
+
+            response.Data = patients;
+            return response;
 
         }
         public async Task<PatientItem> GetPatientByIdAsync(int id)
@@ -82,6 +89,17 @@ namespace HealthCare.Infrastructure.Repository.Implementations
             _dbContext.Patients.Add(obj);
             await _dbContext.SaveChangesAsync();
             return await GetPatientByIdAsync(obj.PatientId);
+        }
+        public async Task<(bool isSuccess, string patientName)> DeletePatient(int id)
+        {
+            var patient = await _dbContext.Patients.FirstOrDefaultAsync(x=>x.PatientId==id);
+            if (patient == null)
+            {   
+                return (false, null);
+            }
+             _dbContext.Patients.Remove(patient);
+            await _dbContext.SaveChangesAsync(true);
+            return (true, patient.PatientName);
         }
     }
 }

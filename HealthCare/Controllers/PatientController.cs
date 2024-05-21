@@ -1,4 +1,5 @@
 ﻿using HealthCare.Domain.Models.Contracts.Patient;
+using HealthCare.Infrastructure.Persistance;
 using HealthCare.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
@@ -17,14 +18,14 @@ namespace HealthCare.API.Controllers
             
         }
         [HttpGet("PatientsList", Name ="GetPatients")]
-        public async Task<IEnumerable<PatientItem>> GetPatients([FromQuery] PatientFilter filter)
+        public async Task<IActionResult> GetPatients([FromQuery] PatientFilter filter)
         {
-           var result= await _patientService.GetPatientsAsync();
+           var result= await _patientService.GetPatientsAsync(filter);
             if (result != null)
             {
-                return result;
+                return Ok(result);
             }
-            return Enumerable.Empty<PatientItem>();
+            return NotFound();
         }
 
         [HttpGet("{id}", Name = "GetPatientById")]
@@ -57,7 +58,18 @@ namespace HealthCare.API.Controllers
             }
             return BadRequest("Error while adding new patient");
         }
-
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> RemovePatient(int id)
+        {
+            //var patientDetails = await 
+            var (isSuccess, patientName) = await _patientService.DeletePatientAsync(id);
+            
+            if (isSuccess != null)
+            {
+                return Ok($"Patient { patientName } successifully Deleted");
+            }
+            return BadRequest("Error does not exist");
+        }   
 
     }
 }

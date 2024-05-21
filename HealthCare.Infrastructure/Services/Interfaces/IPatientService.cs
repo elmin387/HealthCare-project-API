@@ -9,9 +9,10 @@ namespace HealthCare.Infrastructure.Services.Interfaces
 {
     public interface IPatientService
     {
-        public Task<IEnumerable<PatientItem>> GetPatientsAsync();
+        public Task<PatientGridResponse> GetPatientsAsync(PatientFilter filter);
         public Task<PatientItem> GetPatientByIdAsync(int id);
         public Task<PatientItem> UpdatePatientById(PatientItem patientItem);
         public Task<PatientItem> CreatePatientAsync(PatientItem patientItem);
+        public Task<(bool isSuccess, string patientName)> DeletePatientAsync(int id);
     }
 }

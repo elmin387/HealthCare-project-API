@@ -10,9 +10,10 @@ namespace HealthCare.Infrastructure.Repository.Interfaces
 {
     public interface IPatientRepository
     {
-        public Task<IEnumerable<PatientItem>> GetPatientsAsync();
+        public Task<PatientGridResponse> GetPatientsAsync(PatientFilter filter);
         public Task<PatientItem> GetPatientByIdAsync(int id);
         public Task<PatientItem> UpdatePatientByIdAsync(PatientItem request);
         public Task<PatientItem> CreatePatient(PatientItem request);
+        public Task<(bool isSuccess, string patientName)> DeletePatient(int id);
     }
 }
