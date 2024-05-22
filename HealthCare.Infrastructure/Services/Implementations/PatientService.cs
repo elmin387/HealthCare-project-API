@@ -22,19 +22,19 @@ namespace HealthCare.Infrastructure.Services.Implementations
         {
            return  await _patientRepository.GetPatientsAsync(filter);
         }
-        public async Task<PatientItem> GetPatientByIdAsync(int id)
+        public async Task<PatientResponse> GetPatientByIdAsync(int id)
         {
             return await _patientRepository.GetPatientByIdAsync(id);
         }
-        public async Task<PatientItem> UpdatePatientById(PatientItem patientItem)
+        public async Task<PatientResponse> UpdatePatientById(PatientItem patientItem)
         {
             return await _patientRepository.UpdatePatientByIdAsync(patientItem);
         }
-        public async Task<PatientItem> CreatePatientAsync(PatientItem patientItem)
+        public async Task<PatientResponse> CreatePatientAsync(PatientItem patientItem)
         {
             return await _patientRepository.CreatePatient(patientItem);
         }
-        public async Task<(bool isSuccess,string patientName)> DeletePatientAsync(int id)
+        public async Task<PatientResponse> DeletePatientAsync(int id)
         {
             return await _patientRepository.DeletePatient(id);
         }

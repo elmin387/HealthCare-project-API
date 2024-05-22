@@ -6,9 +6,7 @@ using System.Collections;
 
 namespace HealthCare.API.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class PatientController : ControllerBase
+    public class PatientController : ApiControllerBase
     {
         private readonly IPatientService _patientService;
 
@@ -17,58 +15,37 @@ namespace HealthCare.API.Controllers
             _patientService = patientService;
             
         }
-        [HttpGet("PatientsList", Name ="GetPatients")]
-        public async Task<IActionResult> GetPatients([FromQuery] PatientFilter filter)
+        [HttpGet("PatientsList")]
+        public async Task<PatientGridResponse> GetPatients([FromQuery] PatientFilter filter)
         {
-           var result= await _patientService.GetPatientsAsync(filter);
-            if (result != null)
-            {
-                return Ok(result);
-            }
-            return NotFound();
+           return  await _patientService.GetPatientsAsync(filter);
+
         }
 
-        [HttpGet("{id}", Name = "GetPatientById")]
-        public async Task<PatientItem> GetPatientById(int id)
+        [HttpGet("{id}")]
+        public async Task<PatientResponse> GetPatientById(int id)
         {
-            var result = await _patientService.GetPatientByIdAsync(id);
-            if (result != null)
-            {
-                return result;
-            }
-            return null;
+            return await _patientService.GetPatientByIdAsync(id);
+ 
         }
-        [HttpPut("{id}",Name ="UpdatePatientById")]
-        public async  Task<IActionResult> UpdatePatientAsync(PatientItem patientItem)
+
+        [HttpPut("{id}")]
+        public async  Task<PatientResponse> UpdatePatientAsync(PatientItem patientItem)
         {
-            var updatedPatient = await _patientService.UpdatePatientById(patientItem);
-            if (updatedPatient != null)
-            {
-                return Ok(patientItem);
-            }
-            return NotFound("Error updating patient");
+            return await _patientService.UpdatePatientById(patientItem);
         }
+
         [HttpPost("AddPatient", Name ="AddPatient")]
-        public async Task<IActionResult> CreatePatientAsync(PatientItem patientItem)
+        public async Task<PatientResponse> CreatePatientAsync(PatientItem patientItem)
         {
-            var newPatient = await _patientService.CreatePatientAsync(patientItem);
-            if (newPatient != null)
-            {
-                return Ok(newPatient);
-            }
-            return BadRequest("Error while adding new patient");
+            return await _patientService.CreatePatientAsync(patientItem);
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> RemovePatient(int id)
+        public async Task<PatientResponse> RemovePatient(int id)
         {
-            //var patientDetails = await 
-            var (isSuccess, patientName) = await _patientService.DeletePatientAsync(id);
+        
+            return await _patientService.DeletePatientAsync(id);
             
-            if (isSuccess != null)
-            {
-                return Ok($"Patient { patientName } successifully Deleted");
-            }
-            return BadRequest("Error does not exist");
         }   
 
     }

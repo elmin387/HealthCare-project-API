@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Domain.Models.Entities
 {
-    public class Doctor
+    public class Doctor:BaseEntity
     {
         [Key]
         public int DoctorId { get; set; }
         [StringLength(50)]
         public string DoctorName { get; set; }
-        public DoctorTitle DoctorLastName { get; set; }
+        public DoctorTitle Title { get; set; }
         [StringLength(30)]
-        public string Title { get; set; }
+        public string LastName { get; set; }
         [StringLength(100)]
         public string Code { get; set; }
     }

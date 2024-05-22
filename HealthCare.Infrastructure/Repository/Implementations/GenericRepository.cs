@@ -23,5 +23,27 @@ namespace HealthCare.Infrastructure.Repository.Implementations
         {
             return entity;
         }
+        public async Task<T> SoftDeleteAsync(int id)
+        {
+            var obj = await entity.FindAsync(id);
+            if (obj != null)
+            {
+                var isDeleted = obj.GetType().GetProperty("IsDeleted");
+                if(isDeleted != null)
+                {
+                    isDeleted.SetValue(obj, true);
+                }
+                var dateModified = obj.GetType().GetProperty("DateModified");
+                if (dateModified != null)
+                {
+                    dateModified.SetValue(obj, DateTime.Now);
+                }
+                //var userCreated = obj.GetType().GetProperty("UserModifiedId");
+                //if (userCreated != null)
+                return obj;
+
+            }
+            return null;
+        }
     }
 }

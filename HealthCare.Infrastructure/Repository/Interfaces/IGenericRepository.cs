@@ -9,5 +9,6 @@ namespace HealthCare.Infrastructure.Repository.Interfaces
     public interface IGenericRepository<T> where T : class
     {
         public IQueryable<T> Read();
+        public Task<T> SoftDeleteAsync(int id);
     }
 }

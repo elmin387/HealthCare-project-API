@@ -35,18 +35,33 @@ namespace HealthCare.API.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("DoctorLastName")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("DoctorName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Title")
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("Title")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserCreatedId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserModifiedId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DoctorId");
 

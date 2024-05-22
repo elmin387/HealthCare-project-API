@@ -25,21 +25,13 @@ namespace HealthCare.Infrastructure.Repository.Implementations
         }
         public async Task<PatientGridResponse> GetPatientsAsync(PatientFilter filter)
         {
-            //var patientItems = await _dbContext.Patients.Select(patient => new PatientItem
-            //{
-            //    PatientId = patient.PatientId,
-            //    PatientName = patient.PatientName,
-            //    Telephone = patient.Telephone,
-            //    Address = patient.Address,
-            //    Gender = (Domain.Models.Contracts.Patient.Gender)patient.Gender,
 
-            //}).ToListAsync();
             PatientGridResponse response = new PatientGridResponse();
             var patients = await _genericRepository.Read()
                                                    .GlobalFilter()
                                                    .FilterPatients(filter)
                                                    .SortPaginate(filter, response)
-            /*var patients = await _dbContext.Patients*/.Select(p=> new PatientItem
+                                                   .Select(p=> new PatientItem
             {
                 PatientId = p.PatientId,
                 PatientName = p.PatientName,
@@ -52,9 +44,10 @@ namespace HealthCare.Infrastructure.Repository.Implementations
             return response;
 
         }
-        public async Task<PatientItem> GetPatientByIdAsync(int id)
+        public async Task<PatientResponse> GetPatientByIdAsync(int id)
         {
-            var patient = await _dbContext.Patients.Where(p=>p.PatientId == id).Select(p => new PatientItem
+            PatientResponse response = new PatientResponse();
+            var item = await _dbContext.Patients.Where(p=>p.PatientId == id).Select(p => new PatientItem
             {
                 PatientId = p.PatientId,
                 PatientName = p.PatientName,
@@ -62,44 +55,58 @@ namespace HealthCare.Infrastructure.Repository.Implementations
                 Address = p.Address,
                 Gender = (Domain.Models.Contracts.Patient.Gender)p.Gender
             }).FirstOrDefaultAsync();
-            return patient;
+            response.item = item;
+            return response;
             
            
         }
-        public  async Task<PatientItem> UpdatePatientByIdAsync(PatientItem request)
+        public  async Task<PatientResponse> UpdatePatientByIdAsync(PatientItem request)
         {
+            PatientResponse response = new PatientResponse();
+
             Patient obj = new Patient();
             obj.PatientId = request.PatientId;
             obj.PatientName = request.PatientName;
             obj.Telephone = request.Telephone;
             obj.Address = request.Address;
             obj.Gender = (Domain.Models.Entities.Gender)request.Gender;
-             _dbContext.Patients.Update(obj);
-             await _dbContext.SaveChangesAsync();
-            return await GetPatientByIdAsync(obj.PatientId);
+            if (obj != null)
+            {
+                _dbContext.Patients.Update(obj);
+                await _dbContext.SaveChangesAsync();
+                return await GetPatientByIdAsync(obj.PatientId);
+            }
+            return response;
+
         }
-        public async Task<PatientItem> CreatePatient(PatientItem request)
+        public async Task<PatientResponse> CreatePatient(PatientItem request)
         {
+            PatientResponse response = new PatientResponse();
+
             Patient obj = new Patient
             { PatientId = request.PatientId,
                 PatientName = request.PatientName,
                 Address = request.Address,
                 Telephone = request.Telephone,
                 Gender = (Domain.Models.Entities.Gender)request.Gender };
-            _dbContext.Patients.Add(obj);
-            await _dbContext.SaveChangesAsync();
-            return await GetPatientByIdAsync(obj.PatientId);
-        }
-        public async Task<(bool isSuccess, string patientName)> DeletePatient(int id)
-        {
-            var patient = await _dbContext.Patients.FirstOrDefaultAsync(x=>x.PatientId==id);
-            if (patient == null)
-            {   
-                return (false, null);
+            if (obj != null)
+            {
+                await _dbContext.Patients.AddAsync(obj);
+                await _dbContext.SaveChangesAsync();
+                return await GetPatientByIdAsync(obj.PatientId);
             }
-             _dbContext.Patients.Remove(patient);
-            await _dbContext.SaveChangesAsync(true);
-            return (true, patient.PatientName);
+            return response;
+        }
+        public async Task<PatientResponse> DeletePatient(int id)
+        {
+            PatientResponse obj = new PatientResponse();
+            var item = await _genericRepository.SoftDeleteAsync(id);
+            if (item != null)
+            {
+               await _dbContext.SaveChangesAsync();
+            }
+            return obj;
+
         }
     }
 }
