@@ -1,6 +1,7 @@
 ﻿using HealthCare.Domain.Models.Contracts.Doctor;
 using HealthCare.Domain.Models.Contracts.Patient;
 using HealthCare.Domain.Models.Entities;
+using HealthCare.Infrastructure.Common;
 using HealthCare.Infrastructure.Persistance;
 using HealthCare.Infrastructure.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,7 @@ namespace HealthCare.Infrastructure.Repository.Implementations
         {
             DoctorGridResponse response = new DoctorGridResponse();
            
-            var data = await _dbContext.Doctors.Select(doctor => new DoctorItem
+            var data = await _genericRepository.Read().GlobalFilter().Select(doctor => new DoctorItem
             {
                 DoctorId = doctor.DoctorId,
                 DoctorName = doctor.DoctorName,
