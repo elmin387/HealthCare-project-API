@@ -23,11 +23,15 @@ namespace HealthCare.Infrastructure.Repository.Implementations
             _dbContext = dbContext;
             _genericRepository = genericRepository;
         }
-        public async Task<DoctorGridResponse> GetDoctorsAsync()
+        public async Task<DoctorGridResponse> GetDoctorsAsync(DoctorFilter filter)
         {
             DoctorGridResponse response = new DoctorGridResponse();
            
-            var data = await _genericRepository.Read().GlobalFilter().Select(doctor => new DoctorItem
+            var data = await _genericRepository.Read()
+                                               .GlobalFilter()
+                                               .FilterDoctors(filter)
+                                               .SortPaginate(filter,response)
+                                               .Select(doctor => new DoctorItem
             {
                 DoctorId = doctor.DoctorId,
                 DoctorName = doctor.DoctorName,

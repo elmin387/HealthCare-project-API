@@ -120,17 +120,32 @@ namespace HealthCare.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PatientAcceptanceId"), 1L, 1);
 
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateTimeOfAcceptance")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
 
                     b.Property<bool>("UrgentAcceptance")
                         .HasColumnType("bit");
+
+                    b.Property<string>("UserCreatedId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserModifiedId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PatientAcceptanceId");
 
@@ -149,13 +164,28 @@ namespace HealthCare.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PatientReportId"), 1L, 1);
 
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateTimeOfReport")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ReportDescription")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("UserCreatedId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserModifiedId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PatientReportId");
 

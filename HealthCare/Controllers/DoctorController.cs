@@ -14,9 +14,9 @@ namespace HealthCare.API.Controllers
             _doctorService = doctorService;   
         }
         [HttpGet("DoctorsList")]
-        public async Task<DoctorGridResponse> GetAsync()
+        public async Task<DoctorGridResponse> GetAsync([FromQuery] DoctorFilter doctorFilter)
         {
-            return await _doctorService.DoctorsAsync();
+            return await _doctorService.DoctorsAsync(doctorFilter);
         }
 
         [HttpGet("{id}")]

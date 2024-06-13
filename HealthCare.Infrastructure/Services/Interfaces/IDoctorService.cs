@@ -10,7 +10,7 @@ namespace HealthCare.Infrastructure.Services.Interfaces
 {
     public interface IDoctorService
     {
-        public Task<DoctorGridResponse> DoctorsAsync();
+        public Task<DoctorGridResponse> DoctorsAsync(DoctorFilter filter);
         public Task<DoctorResponse> GetDoctorByIdAsync(int id);
         public Task<DoctorResponse> UpdateDoctorbyId(DoctorItem request);
         public Task<DoctorResponse> CreateDoctorAsync(DoctorItem request);

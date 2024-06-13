@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HealthCare.Domain.Models.Entities
 {
-    public class PatientAcceptance
+    public class PatientAcceptance:BaseEntity
     {
         [Key]
         public int PatientAcceptanceId { get; set; }

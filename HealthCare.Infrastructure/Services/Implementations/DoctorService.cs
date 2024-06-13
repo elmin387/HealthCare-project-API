@@ -18,9 +18,9 @@ namespace HealthCare.Infrastructure.Services.Implementations
         {
             _doctorRepository = doctorRepository;
         }
-        public async Task<DoctorGridResponse> DoctorsAsync()
+        public async Task<DoctorGridResponse> DoctorsAsync(DoctorFilter filter)
         {
-            return await _doctorRepository.GetDoctorsAsync();
+            return await _doctorRepository.GetDoctorsAsync(filter);
         }
         public async Task<DoctorResponse> GetDoctorByIdAsync(int id)
         {

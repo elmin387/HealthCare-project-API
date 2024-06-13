@@ -15,6 +15,7 @@ namespace HealthCare.Domain.Models.Contracts.PatientAcceptance
         public string PatientName { get; set; }
         public int DoctorId { get; set; }
         public string DoctorName { get; set; }
+        public string? DoctorCode { get; set; }
         public bool UrgentAcceptance { get; set; }
 
     }
