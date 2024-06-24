@@ -26,6 +26,8 @@ namespace HealthCare.Infrastructure
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IAcceptanceRepository, AcceptanceRepository>();
             services.AddScoped<IAcceptanceService, AcceptanceService>();
+            services.AddScoped<IReportRepository, ReportRepository>();
+            services.AddScoped<IReportService, ReportService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             return services;
         }

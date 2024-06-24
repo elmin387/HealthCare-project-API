@@ -164,6 +164,9 @@ namespace HealthCare.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PatientReportId"), 1L, 1);
 
+                    b.Property<int>("AcceptanceId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
@@ -178,8 +181,8 @@ namespace HealthCare.API.Migrations
 
                     b.Property<string>("ReportDescription")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("UserCreatedId")
                         .HasColumnType("nvarchar(max)");
@@ -188,6 +191,8 @@ namespace HealthCare.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PatientReportId");
+
+                    b.HasIndex("AcceptanceId");
 
                     b.ToTable("PatientReports");
                 });
@@ -209,6 +214,17 @@ namespace HealthCare.API.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HealthCare.Domain.Models.Entities.PatientReport", b =>
+                {
+                    b.HasOne("HealthCare.Domain.Models.Entities.PatientAcceptance", "Acceptance")
+                        .WithMany()
+                        .HasForeignKey("AcceptanceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Acceptance");
                 });
 #pragma warning restore 612, 618
         }
