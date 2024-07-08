@@ -23,7 +23,7 @@ namespace HealthCare.Infrastructure.Repository.Implementations
             _dbContext = dbContext;
             _genericRepository = genericRepository;
         }
-        public async Task<PatientGridResponse> GetPatientsAsync(PatientFilter filter)
+        public async Task<PatientGridResponse> GetPatientsAsync(PatientFilter? filter)
         {
 
             PatientGridResponse response = new PatientGridResponse();

@@ -18,7 +18,7 @@ namespace HealthCare.Infrastructure.Services.Implementations
             _patientRepository = patientRepository;
         }
 
-        public async Task<PatientGridResponse> GetPatientsAsync(PatientFilter filter)
+        public async Task<PatientGridResponse> GetPatientsAsync(PatientFilter? filter)
         {
            return  await _patientRepository.GetPatientsAsync(filter);
         }

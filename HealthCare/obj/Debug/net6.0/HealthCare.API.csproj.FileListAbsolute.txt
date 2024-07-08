@@ -71,3 +71,13 @@ C:\Users\Elmin\source\repos\HealthCare\HealthCare\obj\Debug\net6.0\HealthCare.AP
 C:\Users\Elmin\source\repos\HealthCare\HealthCare\obj\Debug\net6.0\HealthCare.API.genruntimeconfig.cache
 C:\Users\Elmin\source\repos\HealthCare\HealthCare\obj\Debug\net6.0\ref\HealthCare.API.dll
 C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\HealthCare.API.staticwebassets.runtime.json
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Elmin\source\repos\HealthCare\HealthCare\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
