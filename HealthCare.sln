@@ -9,12 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCare.Domain", "Health
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCare.Infrastructure", "HealthCare.Infrastructure\HealthCare.Infrastructure.csproj", "{8A550756-13DE-4727-B177-F8EB5D879052}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveInvoice.Infrastructure", "..\..\..\Desktop\Hive AppIt\hive-invoicing\HiveInvoice\HiveInvoice.Infrastructure\HiveInvoice.Infrastructure.csproj", "{D6BC5FEA-6F16-45E4-AE41-9308791C1690}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveInvoice.Domain", "..\..\..\Desktop\Hive AppIt\hive-invoicing\HiveInvoice\HiveInvoice.Domain\HiveInvoice.Domain.csproj", "{EB59FF8A-D150-4298-8BE6-032F0D67A72D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveInvoice.Api", "..\..\..\Desktop\Hive AppIt\hive-invoicing\HiveInvoice\HiveInvoice.Api\HiveInvoice.Api.csproj", "{DA82F4BF-293F-4BF7-B26C-58858DC93FBE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,18 +27,6 @@ Global
 		{8A550756-13DE-4727-B177-F8EB5D879052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A550756-13DE-4727-B177-F8EB5D879052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A550756-13DE-4727-B177-F8EB5D879052}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6BC5FEA-6F16-45E4-AE41-9308791C1690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6BC5FEA-6F16-45E4-AE41-9308791C1690}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6BC5FEA-6F16-45E4-AE41-9308791C1690}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6BC5FEA-6F16-45E4-AE41-9308791C1690}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB59FF8A-D150-4298-8BE6-032F0D67A72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB59FF8A-D150-4298-8BE6-032F0D67A72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB59FF8A-D150-4298-8BE6-032F0D67A72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB59FF8A-D150-4298-8BE6-032F0D67A72D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA82F4BF-293F-4BF7-B26C-58858DC93FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA82F4BF-293F-4BF7-B26C-58858DC93FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA82F4BF-293F-4BF7-B26C-58858DC93FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA82F4BF-293F-4BF7-B26C-58858DC93FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
