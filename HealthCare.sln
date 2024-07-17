@@ -15,6 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveInvoice.Domain", "..\..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveInvoice.Api", "..\..\..\Desktop\Hive AppIt\hive-invoicing\HiveInvoice\HiveInvoice.Api\HiveInvoice.Api.csproj", "{DA82F4BF-293F-4BF7-B26C-58858DC93FBE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{FB0E400A-3CBD-46D1-866F-01841E9B7EDB}"
+	ProjectSection(SolutionItems) = preProject
+		ci.yml = ci.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
