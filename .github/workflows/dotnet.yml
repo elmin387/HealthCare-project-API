@@ -35,4 +35,8 @@ jobs:
     - name: End SonarQube analysis
       run: dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
+    - name: Print Environment Variables
+      run: |
+        echo "SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}"
+        echo "SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }}"
 
