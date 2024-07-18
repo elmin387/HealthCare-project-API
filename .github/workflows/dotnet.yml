@@ -17,6 +17,9 @@ jobs:
       with:
         dotnet-version: '7.0.x'
 
+    - name: Restore dependencies
+      run: dotnet restore
+
     - name: Install SonarScanner for MSBuild
       run: dotnet tool install --global dotnet-sonarscanner
 
