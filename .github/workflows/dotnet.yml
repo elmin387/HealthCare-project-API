@@ -45,7 +45,7 @@ jobs:
         curl -v "${{ secrets.SONAR_HOST_URL }}/api/server/version"
 
     - name: Begin SonarQube analysis
-      run: dotnet-sonarscanner begin /k:"elmin387_HealthCare-project-API_d931c531-fcd6-4da0-98da-7d9bc4f3cb5b" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+      run: dotnet-sonarscanner begin /k:"elmin387_HealthCare-project-API_5cfb6d62-2dce-4a4f-a4a8-d6061174f4dd" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
 
     - name: Build project
       run: dotnet build --no-restore
